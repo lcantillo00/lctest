@@ -11,7 +11,7 @@ app.config['DEBUG'] = True
 def index():
     return render_template('index.html')
 
-data={}
+tasks=[]
 @app.route('/', methods=['POST', 'GET'])
 
 def my_search():
@@ -24,9 +24,9 @@ def my_search():
         data=json.load(json_obj)
         for item in data['items']:
            mydata=item['kind']
-           print(mydata)
+           tasks.append('mydata')
 
-        return render_template('index.html',title="Get It Done!", data=data)
+        return render_template('index.html',title="Get It Done!", tasks=tasks)
         
     
 app.run()
