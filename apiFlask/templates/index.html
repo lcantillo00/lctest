@@ -10,6 +10,12 @@
     <form action='/' method="post">
         <input type="text" name="task">
         <input type="submit">
+       
     </form>
+    <ul>
+        {% for task in tasks %}
+        <li>{{task}}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

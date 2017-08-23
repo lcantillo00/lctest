@@ -1,4 +1,5 @@
 from flask import Flask, flash, jsonify, render_template, request
+import requests
 
 import urllib.request
 import json
@@ -9,7 +10,10 @@ app.config['DEBUG'] = True
 @app.route("/")
 def index():
     return render_template('index.html')
+
+data={}
 @app.route('/', methods=['POST', 'GET'])
+
 def my_search():
     if request.method == 'POST':
         task = request.form['task']
@@ -19,8 +23,10 @@ def my_search():
         json_obj=urllib.request.urlopen(final_url)
         data=json.load(json_obj)
         for item in data['items']:
-            print(item['kind'])
-        return render_template('index.html',title="Get It Done!", task=task)
+           mydata=item['kind']
+           print(mydata)
+
+        return render_template('index.html',title="Get It Done!", data=data)
         
     
 app.run()
