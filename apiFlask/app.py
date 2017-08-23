@@ -24,7 +24,7 @@ def my_search():
         data=json.load(json_obj)
         for item in data['items']:
            mydata=item['kind']
-           tasks.append('mydata')
+           tasks.append(mydata)
 
         return render_template('index.html',title="Get It Done!", tasks=tasks)
         
