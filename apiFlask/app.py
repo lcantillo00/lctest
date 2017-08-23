@@ -28,7 +28,7 @@ def my_search():
            tasks.append(mydata)
         for  v in data['items']:
             if isinstance(v, dict):
-                for x in v['volumeInfo']:
+                for x in v['volumeInfo'].values():
                     info.append(x)
                 # print(v['volumeInfo'])
             else:
