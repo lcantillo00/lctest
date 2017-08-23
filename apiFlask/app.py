@@ -12,6 +12,7 @@ def index():
     return render_template('index.html')
 
 tasks=[]
+info=[]
 @app.route('/', methods=['POST', 'GET'])
 
 def my_search():
@@ -25,8 +26,19 @@ def my_search():
         for item in data['items']:
            mydata=item['kind']
            tasks.append(mydata)
-
-        return render_template('index.html',title="Get It Done!", tasks=tasks)
+        for  v in data['items']:
+            if isinstance(v, dict):
+                for x in v['volumeInfo']:
+                    info.append(x)
+                # print(v['volumeInfo'])
+            else:
+                print("{0} : {1}".format(k, v))
+        # for item in data['items']:
+        #     for x in item['volumeInfo']:
+        #         print(type(x))
+        #     #    for z,y in x.items():
+        #     #        print(type(y))
+        return render_template('index.html',title="Get It Done!", tasks=tasks, info=info) 
         
     
 app.run()
