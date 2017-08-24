@@ -4,30 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>My Book Search</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='main.css') }}">
 </head>
 <body>
-    <form action='/' method="post">
-        <input type="text" name="task">
-        <input type="submit">
-       
-    </form>
-
-    <!-- <ul>
-        {% for x in imag %}
-        {% for y in info%}
-            <li><img src="{{x}}" alt=""><span>{{y}}</span></li>
-
-        {% endfor %}
-        {%endfor%}
-    </ul> -->
-    {% if dinfo%}
-        {% for key,value in dinfo.items()%}
-            <span>{{key}}</span>
-            <img src="{{value}}" alt="">
-        {%endfor%}
-    {%endif%}    
     
-    </div>
+    <div class="container">
+        <div class="mysearch">
+                <form action='/' method="post">
+                    <input type="text" name="task">
+                    <input type="submit">
+                   
+                </form>
+
+        </div>
+            
+        <div class="mymain">
+            <div class="mylist">
+               
+                    {% if dinfo%}
+                        {% for key,value in dinfo.items()%}
+                        <div class="book">
+                            <span>{{key}}</span>
+                            <img src="{{value}}" alt="">
+                        </div>
+                        {%endfor%}
+                    {%endif%} 
+
+               
+                
+    
+
+            </div>
+           
+        </div>
+     </div>
 </body>
 </html>

@@ -22,7 +22,7 @@ def my_search():
     if request.method == 'POST':
         task = request.form['task']
         url="https://www.googleapis.com/books/v1/volumes?q="
-        max_result="maxResults=5"
+        max_result="maxResults=20"
         final_url=url+task+'&'+max_result
         json_obj=urllib.request.urlopen(final_url)
         data=json.load(json_obj)

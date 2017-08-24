@@ -1,0 +1,38 @@
+
+body{
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-image: url("https://fliphtml5.com/examples/dci/files/extfile/bg.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    
+
+.container{
+    max-width: 1200px;
+    margin:0 auto;
+}
+.mymain{
+    display: flex;
+}
+.mylist{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.book{
+    margin: 20px;
+    text-align: center;
+    position: relative;
+}
+.mysearch{
+    margin: 40px;
+    text-align: center;
+}
+img{
+    width: 10rem;
+    height: auto;
+    display: block;
+  }
