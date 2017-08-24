@@ -25,8 +25,8 @@
                     {% if dinfo%}
                         {% for key,value in dinfo.items()%}
                         <div class="book">
-                            <span>{{key}}</span>
-                            <img src="{{value}}" alt="">
+                            <span>{{value[1]}}</span>
+                            <img src="{{value[0]}}" alt="">
                         </div>
                         {%endfor%}
                     {%endif%} 

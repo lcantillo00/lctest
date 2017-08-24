@@ -12,9 +12,8 @@ app.config['DEBUG'] = True
 def index():
     return render_template('index.html')
 
-tasks=[]
+
 dinfo={}
-imag=[]
 
 @app.route('/', methods=['POST', 'GET'])
 
@@ -22,23 +21,21 @@ def my_search():
     if request.method == 'POST':
         task = request.form['task']
         url="https://www.googleapis.com/books/v1/volumes?q="
-        max_result="maxResults=20"
+        max_result="maxResults=25"
         final_url=url+task+'&'+max_result
         json_obj=urllib.request.urlopen(final_url)
         data=json.load(json_obj)
-        # for item in data['items']:
-        #    mydata=item['kind']
-        #    tasks.append(mydata)
         for  v in data['items']:
-            if isinstance(v, dict):
-                for y in v['volumeInfo']['authors']:
-                    # info.append(y)
+                if isinstance(v, dict):
                     for x in v['volumeInfo']['imageLinks'].values():
-                        dinfo[y]=x
-                        print(dinfo)
+                            for y in v['volumeInfo']['authors']:
+                            
+                                dinfo[v['id']]=x,y
+        for k,v in dinfo.items():
+            print(k, v)
            
     
-        return render_template('index.html',title="Get It Done!", tasks=tasks, dinfo=dinfo,imag=imag) 
+        return render_template('index.html',title="Get It Done!", dinfo=dinfo) 
         
     
 app.run()
