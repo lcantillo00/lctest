@@ -13,7 +13,7 @@ def index():
     return render_template('index.html')
 
 tasks=[]
-info=[]
+dinfo={}
 imag=[]
 
 @app.route('/', methods=['POST', 'GET'])
@@ -31,14 +31,14 @@ def my_search():
         #    tasks.append(mydata)
         for  v in data['items']:
             if isinstance(v, dict):
-                for x in v['volumeInfo']['imageLinks'].values():
-                    imag.append(x)
                 for y in v['volumeInfo']['authors']:
-                    info.append(y)
-                
+                    # info.append(y)
+                    for x in v['volumeInfo']['imageLinks'].values():
+                        dinfo[y]=x
+                        print(dinfo)
            
     
-        return render_template('index.html',title="Get It Done!", tasks=tasks, info=info,imag=imag) 
+        return render_template('index.html',title="Get It Done!", tasks=tasks, dinfo=dinfo,imag=imag) 
         
     
 app.run()

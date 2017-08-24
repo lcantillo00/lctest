@@ -13,14 +13,20 @@
        
     </form>
 
-    <ul>
+    <!-- <ul>
         {% for x in imag %}
         {% for y in info%}
             <li><img src="{{x}}" alt=""><span>{{y}}</span></li>
 
         {% endfor %}
         {%endfor%}
-    </ul>
+    </ul> -->
+    {% if dinfo%}
+        {% for key,value in dinfo.items()%}
+            <span>{{key}}</span>
+            <img src="{{value}}" alt="">
+        {%endfor%}
+    {%endif%}    
     
     </div>
 </body>
