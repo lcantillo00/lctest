@@ -12,15 +12,16 @@
         <input type="submit">
        
     </form>
+
     <ul>
-        {% for tast in tasks %}
-        <li>{{tast}}</li>
+        {% for x in imag %}
+        {% for y in info%}
+            <li><img src="{{x}}" alt=""><span>{{y}}</span></li>
+
         {% endfor %}
+        {%endfor%}
     </ul>
-    <ul>
-        {% for x in info %}
-        <li>{{x}}</li>
-        {% endfor %}
-    </ul>
+    
+    </div>
 </body>
 </html>
