@@ -30,10 +30,7 @@ def my_search():
                     for x in v['volumeInfo']['imageLinks'].values():
                             for y in v['volumeInfo']['authors']:
                                 
-                                dinfo[v['id']]=x,y,mylink
-        # for k,v in dinfo.items():
-        #     print(k, v)
-        print(dinfo)    
+                                dinfo[v['id']]=x,y,mylink 
     
         return render_template('index.html',title="Get It Done!", dinfo=dinfo) 
         
