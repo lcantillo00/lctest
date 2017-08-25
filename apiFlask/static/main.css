@@ -45,4 +45,6 @@ img{
     width: 8em;
     margin-top: 20%;
 }
-a { color: inherit; } 
+a { color: inherit; 
+    text-decoration: none;
+} 
